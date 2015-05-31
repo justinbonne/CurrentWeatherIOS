@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LoadingView.h"
+#import "Weather.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (retain, nonatomic) NSMutableData *forecastReturnJSONData;
 @property (strong, nonatomic) LoadingView *loader;
+@property (strong, nonatomic)  Weather *weather;
 
 @property (nonatomic, strong) IBOutletCollection(UILabel)
 NSArray *temperatureLabels;
@@ -32,6 +34,6 @@ NSArray *precipIntensityLabels;
 @property (nonatomic, strong) IBOutletCollection(UILabel)
 NSArray *humidityLabels;
 
-- (void)updateLabels:(NSDictionary *)JSONDict;
+- (void)updateLabels;
 @end
 

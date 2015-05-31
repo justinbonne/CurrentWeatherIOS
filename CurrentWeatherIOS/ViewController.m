@@ -26,6 +26,7 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
     self.loader = [LoadingView showLoaderInView:self.view];
+    self.weather = [Weather init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +67,8 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
             NSLog(@"Error parsing JSON.");
         }
         else {
-            [self updateLabels:JSONDict];
+            [self.weather loadValuesFromJSON:JSONDict];
+            [self updateLabels];
         }
     }
     else{
@@ -75,55 +77,54 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     [self.loader removeLoader];
 }
 
-- (void)updateLabels:(NSDictionary *)JSONDict{
-    double JSONTemperature =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"apparentTemperature"] doubleValue];
+- (void)updateLabels{
+    //double JSONTemperature =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"apparentTemperature"] doubleValue];
     for(UILabel *temperature in _temperatureLabels){
-        temperature.text = [NSString stringWithFormat:@"%f",JSONTemperature];
+        temperature.text = [self.weather getFormattedTemperature];
     }
     
-    NSString *JSONIcon =
-    [[JSONDict objectForKey:@"currently"] objectForKey:@"icon"];
+    //NSString *JSONIcon =
+    //[[JSONDict objectForKey:@"currently"] objectForKey:@"icon"];
     for(UILabel *icon in _iconLabels){
-        icon.text = JSONIcon;
+        icon.text = self.weather.icon;
     }
     
-    NSString *JSONSummary =
-    [[JSONDict objectForKey:@"currently"] objectForKey:@"summary"];
+    //NSString *JSONSummary =
+    //[[JSONDict objectForKey:@"currently"] objectForKey:@"summary"];
     for(UILabel *summary in _summaryLabels){
-        summary.text = JSONSummary;
+        summary.text = self.weather.summary;
     }
     
-    double JSONWindSpeed =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"windSpeed"]doubleValue];
+    //double JSONWindSpeed =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"windSpeed"]doubleValue];
     for(UILabel *windSpeed in _windSpeedLabels){
-        windSpeed.text = [NSString stringWithFormat:@"%f",JSONWindSpeed];
+        windSpeed.text = [self.weather getFormattedWindSpeed];
     }
     
-    double JSONWindBearing =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"windBearing"] doubleValue];
+    //double JSONWindBearing =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"windBearing"] doubleValue];
     for(UILabel *windBearing in _windBearingLabels){
-        windBearing.text = [NSString stringWithFormat:@"%f",JSONWindBearing];
+        windBearing.text = [self.weather getFormattedWindBearing];
     }
     
-    double JSONPrecipProbability =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"precipProbability"] doubleValue];
+    //double JSONPrecipProbability =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"precipProbability"] doubleValue];
     for(UILabel *precipProbability in _precipProbabilityLabels){
-        precipProbability.text = [NSString stringWithFormat:@"%f" ,JSONPrecipProbability];
+        precipProbability.text = [self.weather getFormattedPrecipProbability];
     }
     
-    double JSONPrecipIntensity =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"precipIntensity"] doubleValue];
+    //double JSONPrecipIntensity =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"precipIntensity"] doubleValue];
     for(UILabel *precipIntensity in _precipIntensityLabels){
-        precipIntensity.text = [NSString stringWithFormat:@"%f", JSONPrecipIntensity];
+        precipIntensity.text = [self.weather getFormattedPrecipType];
     }
     
-    double JSONHumidity =
-    [[[JSONDict objectForKey:@"currently"] objectForKey:@"humidity"] doubleValue];
+    //double JSONHumidity =
+    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"humidity"] doubleValue];
     for(UILabel *humidity in _humidityLabels){
-        humidity.text = [NSString stringWithFormat:@"%f",JSONHumidity];
+        humidity.text = [self.weather getFormattedHumidity];
     }
-    return;
 }
 
 - (void)locationManager:(CLLocationManager *)manager
