@@ -29,5 +29,6 @@
 -(NSString*) getFormattedHumidity;
 
 -(void) loadValuesFromJSON: (NSDictionary*) JSONDict;
++(NSString*) iconStringToEmoji: (NSString*) icon;
 
 @end

@@ -78,50 +78,34 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
 }
 
 - (void)updateLabels{
-    //double JSONTemperature =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"apparentTemperature"] doubleValue];
     for(UILabel *temperature in _temperatureLabels){
         temperature.text = [self.weather getFormattedTemperature];
     }
     
-    //NSString *JSONIcon =
-    //[[JSONDict objectForKey:@"currently"] objectForKey:@"icon"];
     for(UILabel *icon in _iconLabels){
-        icon.text = self.weather.icon;
+        icon.text = [Weather iconStringToEmoji:self.weather.icon];
     }
     
-    //NSString *JSONSummary =
-    //[[JSONDict objectForKey:@"currently"] objectForKey:@"summary"];
     for(UILabel *summary in _summaryLabels){
         summary.text = self.weather.summary;
     }
     
-    //double JSONWindSpeed =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"windSpeed"]doubleValue];
     for(UILabel *windSpeed in _windSpeedLabels){
         windSpeed.text = [self.weather getFormattedWindSpeed];
     }
     
-    //double JSONWindBearing =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"windBearing"] doubleValue];
     for(UILabel *windBearing in _windBearingLabels){
         windBearing.text = [self.weather getFormattedWindBearing];
     }
     
-    //double JSONPrecipProbability =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"precipProbability"] doubleValue];
     for(UILabel *precipProbability in _precipProbabilityLabels){
         precipProbability.text = [self.weather getFormattedPrecipProbability];
     }
     
-    //double JSONPrecipIntensity =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"precipIntensity"] doubleValue];
     for(UILabel *precipIntensity in _precipIntensityLabels){
         precipIntensity.text = [self.weather getFormattedPrecipType];
     }
     
-    //double JSONHumidity =
-    //[[[JSONDict objectForKey:@"currently"] objectForKey:@"humidity"] doubleValue];
     for(UILabel *humidity in _humidityLabels){
         humidity.text = [self.weather getFormattedHumidity];
     }

@@ -88,4 +88,52 @@
                      objectForKey:@"humidity"];
 }
 
++(NSString*) iconStringToEmoji: (NSString*) icon{
+    NSString *emoji = @"?";
+    
+    icon = @"partly-cloudy-night";
+    if([icon isEqualToString:@"clear-day"]){
+        // SUN
+        emoji = @"\u2600";
+    }
+    else if([icon isEqualToString:@"clear-night"]){
+        //CRESCENT MOON
+        emoji = @"\uE04C";
+    }
+    else if([icon isEqualToString:@"rain"]){
+        //UMBRELLA WITH RAIN DROPS
+        emoji = @"\u2614";
+    }
+    else if([icon isEqualToString:@"snow"]){
+        //SNOWFLAKE
+        emoji = @"\u2744";
+    }
+    else if([icon isEqualToString:@"sleet"]){
+        //SNOWFLAKE
+        emoji = @"\u2744";
+    }
+    else if([icon isEqualToString:@"wind"]){
+        //DASH SYMBOL
+        emoji = @"\uE330";
+    }
+    else if([icon isEqualToString:@"fog"]){
+        //CLOUD
+        emoji = @"\u2601";
+    }
+    else if([icon isEqualToString:@"cloudy"]){
+        //CLOUD
+        emoji = @"\u2601";
+    }
+    else if([icon isEqualToString:@"partly-cloudy-day"]){
+        //SUN BEHIND CLOUD
+        emoji = @"\u26C5";
+    }
+    else if([icon isEqualToString:@"partly-cloudy-night"]){
+        //CRESCENT MOON + CLOUD
+        emoji = @"\uE04C\u2601";
+    }
+    
+    return emoji;
+}
+
 @end
