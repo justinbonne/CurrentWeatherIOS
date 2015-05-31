@@ -14,6 +14,7 @@
 		5CBA1C671B1A2594000809F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA1C661B1A2594000809F4 /* Images.xcassets */; };
 		5CBA1C6A1B1A2594000809F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBA1C681B1A2594000809F4 /* LaunchScreen.xib */; };
 		5CBA1C761B1A2595000809F4 /* CurrentWeatherIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C751B1A2595000809F4 /* CurrentWeatherIOSTests.m */; };
+		5CBA1C801B1A3571000809F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBA1C7F1B1A3571000809F4 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		5CBA1C6F1B1A2595000809F4 /* CurrentWeatherIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrentWeatherIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBA1C741B1A2595000809F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CBA1C751B1A2595000809F4 /* CurrentWeatherIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherIOSTests.m; sourceTree = "<group>"; };
+		5CBA1C7F1B1A3571000809F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBA1C801B1A3571000809F4 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		5CBA1C4D1B1A2594000809F4 = {
 			isa = PBXGroup;
 			children = (
+				5CBA1C7F1B1A3571000809F4 /* CoreLocation.framework */,
 				5CBA1C581B1A2594000809F4 /* CurrentWeatherIOS */,
 				5CBA1C721B1A2595000809F4 /* CurrentWeatherIOSTests */,
 				5CBA1C571B1A2594000809F4 /* Products */,
