@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C74D4F61B1B5885005806BB /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74D4F51B1B5885005806BB /* LoadingView.m */; };
 		5CBA1C5C1B1A2594000809F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C5B1B1A2594000809F4 /* main.m */; };
 		5CBA1C5F1B1A2594000809F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C5E1B1A2594000809F4 /* AppDelegate.m */; };
 		5CBA1C621B1A2594000809F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C611B1A2594000809F4 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C74D4F41B1B5885005806BB /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		5C74D4F51B1B5885005806BB /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		5CBA1C561B1A2594000809F4 /* CurrentWeatherIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrentWeatherIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBA1C5A1B1A2594000809F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CBA1C5B1B1A2594000809F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				5CBA1C601B1A2594000809F4 /* ViewController.h */,
 				5CBA1C611B1A2594000809F4 /* ViewController.m */,
 				5CBA1C631B1A2594000809F4 /* Main.storyboard */,
+				5C74D4F41B1B5885005806BB /* LoadingView.h */,
+				5C74D4F51B1B5885005806BB /* LoadingView.m */,
 				5CBA1C661B1A2594000809F4 /* Images.xcassets */,
 				5CBA1C681B1A2594000809F4 /* LaunchScreen.xib */,
 				5CBA1C591B1A2594000809F4 /* Supporting Files */,
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C74D4F61B1B5885005806BB /* LoadingView.m in Sources */,
 				5CBA1C621B1A2594000809F4 /* ViewController.m in Sources */,
 				5CBA1C5F1B1A2594000809F4 /* AppDelegate.m in Sources */,
 				5CBA1C5C1B1A2594000809F4 /* main.m in Sources */,
@@ -422,6 +428,7 @@
 				5CBA1C7B1B1A2595000809F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CBA1C7C1B1A2595000809F4 /* Build configuration list for PBXNativeTarget "CurrentWeatherIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				5CBA1C7E1B1A2595000809F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "LoadingView.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (retain, nonatomic) NSMutableData *forecastReturnJSONData;
+@property (strong, nonatomic) LoadingView *loader;
 
 @property (nonatomic, strong) IBOutletCollection(UILabel)
 NSArray *temperatureLabels;

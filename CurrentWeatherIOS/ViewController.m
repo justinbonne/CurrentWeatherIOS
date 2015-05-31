@@ -25,6 +25,7 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     _locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
+    self.loader = [LoadingView showLoaderInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +46,7 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
                                     API_KEY,
                                     newLocation.coordinate.latitude,
                                     newLocation.coordinate.longitude ];
+   
     
     NSURL *forecastURL = [NSURL URLWithString:forecastCallString];
     NSURLRequest *forecastRequest = [NSURLRequest requestWithURL:forecastURL];
@@ -53,6 +55,8 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     NSData * forecastData = [NSURLConnection sendSynchronousRequest:forecastRequest
                                                   returningResponse:&forecastResponse
                                                               error:&forecastError];
+    
+    
     if (forecastError == nil)
     {
         NSError *JSONError = nil;
@@ -68,6 +72,7 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     else{
         NSLog(@"Error with forecast request");
     }
+    [self.loader removeLoader];
 }
 
 - (void)updateLabels:(NSDictionary *)JSONDict{
