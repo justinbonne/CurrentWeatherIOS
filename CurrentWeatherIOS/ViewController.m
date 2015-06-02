@@ -8,9 +8,6 @@
 
 #import "ViewController.h"
 
-static NSString *const FORECAST_URL = @"https://api.forecast.io/forecast/";
-static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
-
 @interface ViewController ()
 
 @end
@@ -19,14 +16,19 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //setup location manager and start updating location
     self.locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
+    
+    //show loading spinner
     self.loader = [LoadingView showLoaderInView:self.view];
-    self.weather = [Weather init];
+    
+    //initialize forecast object
+    self.forecast = [Forecast init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,77 +40,35 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
 #pragma mark CLLocationManagerDelegate Methods
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations{
-
+    
+    //stop updating location (we only need it once)
     [_locationManager stopUpdatingLocation];
+
+    //load long./lat. into forecast object
     CLLocation *newLocation = [locations lastObject];
-    NSString *forecastCallString = [NSString stringWithFormat:
-                                    @"%@%@/%g,%g?units=ca",
-                                    FORECAST_URL,
-                                    API_KEY,
-                                    newLocation.coordinate.latitude,
-                                    newLocation.coordinate.longitude ];
-   
+    self.forecast.longitude = [NSNumber numberWithDouble:newLocation.coordinate.longitude];
+    self.forecast.latitude = [NSNumber numberWithDouble:newLocation.coordinate.latitude];
     
-    NSURL *forecastURL = [NSURL URLWithString:forecastCallString];
-    NSURLRequest *forecastRequest = [NSURLRequest requestWithURL:forecastURL];
-    NSURLResponse * forecastResponse = nil;
-    NSError * forecastError = nil;
-    NSData * forecastData = [NSURLConnection sendSynchronousRequest:forecastRequest
-                                                  returningResponse:&forecastResponse
-                                                              error:&forecastError];
-    
-    
-    if (forecastError == nil)
-    {
-        NSError *JSONError = nil;
-        NSDictionary *JSONDict = [NSJSONSerialization JSONObjectWithData:forecastData options:kNilOptions error:&JSONError];
-        
-        if (JSONError != nil) {
-            NSLog(@"Error parsing JSON.");
-        }
-        else {
-            [self.weather loadValuesFromJSON:JSONDict];
-            [self updateLabels];
-        }
+    //make forecast request and update the forecast object and update labels in view
+    NSDictionary *forecastResponse = [self.forecast makeForecastRequest];
+    if(forecastResponse != nil){
+        [self.forecast loadValuesFromJSON:forecastResponse];
+        [self updateLabels];
     }
-    else{
-        NSLog(@"Error with forecast request");
-    }
+    
+    //hide loading spinner when done
     [self.loader removeLoader];
 }
 
 - (void)updateLabels{
-    for(UILabel *temperature in _temperatureLabels){
-        temperature.text = [self.weather getFormattedTemperature];
-    }
-    
-    for(UILabel *icon in _iconLabels){
-        icon.text = [Weather iconStringToEmoji:self.weather.icon];
-    }
-    
-    for(UILabel *summary in _summaryLabels){
-        summary.text = self.weather.summary;
-    }
-    
-    for(UILabel *windSpeed in _windSpeedLabels){
-        windSpeed.text = [self.weather getFormattedWindSpeed];
-    }
-    
-    for(UILabel *windBearing in _windBearingLabels){
-        windBearing.text = [self.weather getFormattedWindBearing];
-    }
-    
-    for(UILabel *precipProbability in _precipProbabilityLabels){
-        precipProbability.text = [self.weather getFormattedPrecipProbability];
-    }
-    
-    for(UILabel *precipIntensity in _precipIntensityLabels){
-        precipIntensity.text = [self.weather getFormattedPrecipType];
-    }
-    
-    for(UILabel *humidity in _humidityLabels){
-        humidity.text = [self.weather getFormattedHumidity];
-    }
+    _temperatureLabel.text = [self.forecast getFormattedTemperature];
+    _iconLabel.text = [Forecast iconStringToEmoji:self.forecast.icon];
+    _summaryLabel.text = self.forecast.summary;
+    _windSpeedLabel.text = [self.forecast getFormattedWindSpeed];
+    _windBearingLabel.text = [self.forecast getFormattedWindBearing];
+    _precipProbabilityLabel.text = [self.forecast getFormattedPrecipProbability];
+    _precipIntensityLabel.text = [self.forecast getFormattedPrecipType];
+    _humidityLabel.text = [self.forecast getFormattedHumidity];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

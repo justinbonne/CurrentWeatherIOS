@@ -1,5 +1,5 @@
 //
-//  Weather.h
+//  Forecast.h
 //  CurrentWeatherIOS
 //
 //  Created by Justin Bonne on 2015-05-31.
@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface Weather : NSObject
+@interface Forecast : NSObject
 
 @property (weak, nonatomic) NSNumber *temperature;
 @property (weak, nonatomic) NSString *icon;
@@ -19,16 +20,19 @@
 @property (weak, nonatomic) NSNumber *precipIntensity;
 @property (weak, nonatomic) NSString *precipType;
 @property (weak, nonatomic) NSNumber *humidity;
+@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSNumber *latitude;
 
-+(Weather*) init;
++(Forecast*) init;
++(NSString*) iconStringToEmoji: (NSString*) icon;
 -(NSString*) getFormattedTemperature;
 -(NSString*) getFormattedWindSpeed;
 -(NSString*) getFormattedWindBearing;
 -(NSString*) getFormattedPrecipProbability;
 -(NSString*) getFormattedPrecipType;
 -(NSString*) getFormattedHumidity;
-
+-(NSDictionary*) makeForecastRequest;
 -(void) loadValuesFromJSON: (NSDictionary*) JSONDict;
-+(NSString*) iconStringToEmoji: (NSString*) icon;
+
 
 @end

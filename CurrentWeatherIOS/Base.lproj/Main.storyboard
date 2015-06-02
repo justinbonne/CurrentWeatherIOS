@@ -92,7 +92,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hz-fX-3bm" userLabel="WindTitle">
                                 <rect key="frame" x="181" y="388" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" fixedFrame="YES">
@@ -158,7 +158,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Precip." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKb-4v-Uv2" userLabel="PrecipTitle">
                                 <rect key="frame" x="251" y="388" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" fixedFrame="YES">
@@ -227,7 +227,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssZ-8c-TLA" userLabel="HumidityTitle">
                                 <rect key="frame" x="323" y="387" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" fixedFrame="YES">
@@ -393,14 +393,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outletCollection property="temperatureLabels" destination="jvD-Iq-4Du" id="v6t-TS-5Hy"/>
-                        <outletCollection property="iconLabels" destination="Thq-6R-5Z9" id="hUq-BW-INA"/>
-                        <outletCollection property="summaryLabels" destination="TYB-ix-uXy" id="1Tc-zu-AZo"/>
-                        <outletCollection property="windSpeedLabels" destination="vml-fT-czC" id="Wux-GG-wfF"/>
-                        <outletCollection property="windBearingLabels" destination="4ZE-tB-9lc" id="4km-yd-O8s"/>
-                        <outletCollection property="precipProbabilityLabels" destination="H4A-q3-WHN" id="F8j-EJ-3Wn"/>
-                        <outletCollection property="precipIntensityLabels" destination="7UL-Ib-jNy" id="uDS-q8-Uts"/>
-                        <outletCollection property="humidityLabels" destination="i8V-EW-61S" id="DFK-HH-rEF"/>
+                        <outlet property="humidityLabel" destination="i8V-EW-61S" id="kSY-Rk-0A9"/>
+                        <outlet property="iconLabel" destination="Thq-6R-5Z9" id="mzn-ND-Uqd"/>
+                        <outlet property="precipIntensityLabel" destination="7UL-Ib-jNy" id="0fo-B9-NAC"/>
+                        <outlet property="precipProbabilityLabel" destination="H4A-q3-WHN" id="bST-xo-tFr"/>
+                        <outlet property="summaryLabel" destination="TYB-ix-uXy" id="dVx-hD-z0B"/>
+                        <outlet property="temperatureLabel" destination="jvD-Iq-4Du" id="7Fc-z8-yGr"/>
+                        <outlet property="windBearingLabel" destination="4ZE-tB-9lc" id="K1E-bF-EvW"/>
+                        <outlet property="windSpeedLabel" destination="vml-fT-czC" id="heY-yI-fdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

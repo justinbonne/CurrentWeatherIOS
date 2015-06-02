@@ -9,30 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LoadingView.h"
-#import "Weather.h"
+#import "Forecast.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (retain, nonatomic) NSMutableData *forecastReturnJSONData;
 @property (strong, nonatomic) LoadingView *loader;
-@property (strong, nonatomic)  Weather *weather;
+@property (strong, nonatomic)  Forecast *forecast;
 
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *temperatureLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *iconLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *summaryLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *windSpeedLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *windBearingLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *precipProbabilityLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *precipIntensityLabels;
-@property (nonatomic, strong) IBOutletCollection(UILabel)
-NSArray *humidityLabels;
+@property (nonatomic, strong) IBOutlet UILabel *temperatureLabel;
+@property (nonatomic, strong) IBOutlet UILabel *iconLabel;
+@property (nonatomic, strong) IBOutlet UILabel *summaryLabel;
+@property (nonatomic, strong) IBOutlet UILabel *windSpeedLabel;
+@property (nonatomic, strong) IBOutlet UILabel *windBearingLabel;
+@property (nonatomic, strong) IBOutlet UILabel *precipProbabilityLabel;
+@property (nonatomic, strong) IBOutlet UILabel *precipIntensityLabel;
+@property (nonatomic, strong) IBOutlet UILabel *humidityLabel;
 
 - (void)updateLabels;
 @end

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C74D4F61B1B5885005806BB /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74D4F51B1B5885005806BB /* LoadingView.m */; };
-		5C74D4F91B1B7603005806BB /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74D4F81B1B7603005806BB /* Weather.m */; };
+		5C74D4F91B1B7603005806BB /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74D4F81B1B7603005806BB /* Forecast.m */; };
 		5CBA1C5C1B1A2594000809F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C5B1B1A2594000809F4 /* main.m */; };
 		5CBA1C5F1B1A2594000809F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C5E1B1A2594000809F4 /* AppDelegate.m */; };
 		5CBA1C621B1A2594000809F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA1C611B1A2594000809F4 /* ViewController.m */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		5C74D4F41B1B5885005806BB /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		5C74D4F51B1B5885005806BB /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
-		5C74D4F71B1B7603005806BB /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
-		5C74D4F81B1B7603005806BB /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		5C74D4F71B1B7603005806BB /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		5C74D4F81B1B7603005806BB /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		5CBA1C561B1A2594000809F4 /* CurrentWeatherIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrentWeatherIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBA1C5A1B1A2594000809F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CBA1C5B1B1A2594000809F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 				5CBA1C631B1A2594000809F4 /* Main.storyboard */,
 				5C74D4F41B1B5885005806BB /* LoadingView.h */,
 				5C74D4F51B1B5885005806BB /* LoadingView.m */,
-				5C74D4F71B1B7603005806BB /* Weather.h */,
-				5C74D4F81B1B7603005806BB /* Weather.m */,
+				5C74D4F71B1B7603005806BB /* Forecast.h */,
+				5C74D4F81B1B7603005806BB /* Forecast.m */,
 				5CBA1C661B1A2594000809F4 /* Images.xcassets */,
 				5CBA1C681B1A2594000809F4 /* LaunchScreen.xib */,
 				5CBA1C591B1A2594000809F4 /* Supporting Files */,
@@ -237,7 +237,7 @@
 				5CBA1C621B1A2594000809F4 /* ViewController.m in Sources */,
 				5CBA1C5F1B1A2594000809F4 /* AppDelegate.m in Sources */,
 				5CBA1C5C1B1A2594000809F4 /* main.m in Sources */,
-				5C74D4F91B1B7603005806BB /* Weather.m in Sources */,
+				5C74D4F91B1B7603005806BB /* Forecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
