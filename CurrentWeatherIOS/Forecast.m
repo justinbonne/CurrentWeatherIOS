@@ -81,26 +81,26 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
 }
 
 -(NSString*) getFormattedTemperature{
-    return [NSString stringWithFormat:@"%d\u00B0C",[self.temperature intValue]];
+    return [NSString stringWithFormat:@"%d\u00B0C",[_temperature intValue]];
 }
 
 -(NSString*) getFormattedWindSpeed{
-    return [NSString stringWithFormat:@"%d km/h",[self.windSpeed intValue]];
+    return [NSString stringWithFormat:@"%d km/h",[_windSpeed intValue]];
 }
 
 -(NSString*) getFormattedWindBearing{
-    return [NSString stringWithFormat:@"%d\u00B0",[self.windBearing intValue]];
+    return [NSString stringWithFormat:@"%d\u00B0",[_windBearing intValue]];
 }
 
 -(NSString*) getFormattedPrecipProbability{
-    NSNumber *percent = [NSNumber numberWithDouble:[self.precipProbability doubleValue] * 100];
+    NSNumber *percent = [NSNumber numberWithDouble:[_precipProbability doubleValue] * 100];
     return [NSString stringWithFormat:@"%d%%", [percent intValue]];
 }
 
 -(NSString*) getFormattedPrecipType{
     //return a string of the quality and type of precipitation
     //quality is based in the cm/h of intensity
-    double intensity = [self.precipIntensity doubleValue];
+    double intensity = [_precipIntensity doubleValue];
     NSString *precipQualifier = @"";
     if(intensity > 0 && intensity <= 0.005){
         precipQualifier = @"very light";
@@ -114,43 +114,43 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
     else if(intensity > 0.254){
         precipQualifier = @"heavy";
     }
-    return [NSString stringWithFormat:@"%@ %@", precipQualifier, self.precipType];
+    return [NSString stringWithFormat:@"%@ %@", precipQualifier, _precipType];
 }
 
 -(NSString*) getFormattedHumidity{
-    NSNumber *percent = [NSNumber numberWithDouble:[self.precipProbability doubleValue] * 100];
+    NSNumber *percent = [NSNumber numberWithDouble:[_precipProbability doubleValue] * 100];
     return [NSString stringWithFormat:@"%d%%", [percent intValue]];
 }
 
 -(void) loadValuesFromJSON: (NSDictionary*) JSONDict{
     
-    self.temperature = [[JSONDict objectForKey:@"currently"]
+    _temperature = [[JSONDict objectForKey:@"currently"]
                         objectForKey:@"apparentTemperature"];
     
-    self.icon = [[JSONDict objectForKey:@"currently"]
+    _icon = [[JSONDict objectForKey:@"currently"]
                  objectForKey:@"icon"];
     
-    self.summary = [[JSONDict objectForKey:@"currently"]
+    _summary = [[JSONDict objectForKey:@"currently"]
                     objectForKey:@"summary"];
     
-    self.windSpeed = [[JSONDict objectForKey:@"currently"]
+    _windSpeed = [[JSONDict objectForKey:@"currently"]
                       objectForKey:@"windSpeed"];
     
-    self.windBearing = [[JSONDict objectForKey:@"currently"]
+    _windBearing = [[JSONDict objectForKey:@"currently"]
                         objectForKey:@"windBearing"];
     
-    self.precipProbability = [[JSONDict objectForKey:@"currently"]
+    _precipProbability = [[JSONDict objectForKey:@"currently"]
                               objectForKey:@"precipProbability"];
     
-    self.precipIntensity = [[JSONDict objectForKey:@"currently"]
+    _precipIntensity = [[JSONDict objectForKey:@"currently"]
                             objectForKey:@"precipIntensity"];
     
     NSString *type = [[JSONDict objectForKey:@"currently"]
                      objectForKey:@"precipType"];
     
-    self.precipType = (type != nil)? type : @"";
+    _precipType = (type != nil)? type : @"";
     
-    self.humidity = [[JSONDict objectForKey:@"currently"]
+    _humidity = [[JSONDict objectForKey:@"currently"]
                      objectForKey:@"humidity"];
 }
 
@@ -161,8 +161,8 @@ static NSString *const API_KEY = @"9809553ac289203e5f21597f0278a007";
                                     @"%@%@/%@,%@?units=ca",
                                     FORECAST_URL,
                                     API_KEY,
-                                    self.latitude,
-                                    self.longitude ];
+                                    _latitude,
+                                    _longitude ];
     
     NSURL *forecastURL = [NSURL URLWithString:forecastCallString];
     NSURLRequest *forecastRequest = [NSURLRequest requestWithURL:forecastURL];

@@ -46,13 +46,13 @@
 
     //load long./lat. into forecast object
     CLLocation *newLocation = [locations lastObject];
-    self.forecast.longitude = [NSNumber numberWithDouble:newLocation.coordinate.longitude];
-    self.forecast.latitude = [NSNumber numberWithDouble:newLocation.coordinate.latitude];
+    _forecast.longitude = [NSNumber numberWithDouble:newLocation.coordinate.longitude];
+    _forecast.latitude = [NSNumber numberWithDouble:newLocation.coordinate.latitude];
     
     //make forecast request and update the forecast object and update labels in view
-    NSDictionary *forecastResponse = [self.forecast makeForecastRequest];
+    NSDictionary *forecastResponse = [_forecast makeForecastRequest];
     if(forecastResponse != nil){
-        [self.forecast loadValuesFromJSON:forecastResponse];
+        [_forecast loadValuesFromJSON:forecastResponse];
         [self updateLabels];
     }
     
@@ -61,14 +61,14 @@
 }
 
 - (void)updateLabels{
-    _temperatureLabel.text = [self.forecast getFormattedTemperature];
-    _iconLabel.text = [Forecast iconStringToEmoji:self.forecast.icon];
-    _summaryLabel.text = self.forecast.summary;
-    _windSpeedLabel.text = [self.forecast getFormattedWindSpeed];
-    _windBearingLabel.text = [self.forecast getFormattedWindBearing];
-    _precipProbabilityLabel.text = [self.forecast getFormattedPrecipProbability];
-    _precipIntensityLabel.text = [self.forecast getFormattedPrecipType];
-    _humidityLabel.text = [self.forecast getFormattedHumidity];
+    _temperatureLabel.text = [_forecast getFormattedTemperature];
+    _iconLabel.text = [Forecast iconStringToEmoji:_forecast.icon];
+    _summaryLabel.text = _forecast.summary;
+    _windSpeedLabel.text = [_forecast getFormattedWindSpeed];
+    _windBearingLabel.text = [_forecast getFormattedWindBearing];
+    _precipProbabilityLabel.text = [_forecast getFormattedPrecipProbability];
+    _precipIntensityLabel.text = [_forecast getFormattedPrecipType];
+    _humidityLabel.text = [_forecast getFormattedHumidity];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
